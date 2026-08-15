@@ -43,9 +43,6 @@ const IconEthical = () => (
   </svg>
 );
 
-// ── Fallback badges for accreditations that don't have a logo file yet ──
-// Drop real files into /public/images and swap these for <Image /> the
-// same way FDA / KFDA / Council / Cofepris are wired up below.
 const IconQualitySeal = () => (
   <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
     <circle cx="32" cy="26" r="20" stroke="#0C4A6E" strokeWidth="2" fill="none"/>
@@ -67,14 +64,11 @@ const IconWHO = () => (
   </svg>
 );
 
-// ── Partner / accreditation logo data ───────────────────────────
-// Place matching files in /public/images. Update the "src" path once
-// real artwork is available for entries currently using a fallback icon.
 const partners = [
-  { name: "US FDA",             src: "/images/FDA.png",      width: 110, height: 46 },
-  { name: "Council of Europe",  src: "/images/Council.png",  width: 110, height: 46 },
-  { name: "KFDA",                src: "/images/KFDA.jpeg",   width: 110, height: 46 },
-  { name: "Cofepris",           src: "/images/Cofepris.jpeg", width: 110, height: 46 },
+  { name: "US FDA",            src: "/images/FDA.png",       width: 110, height: 46 },
+  { name: "Council of Europe", src: "/images/Council.png",   width: 110, height: 46 },
+  { name: "KFDA",               src: "/images/KFDA.jpeg",    width: 110, height: 46 },
+  { name: "Cofepris",          src: "/images/Cofepris.jpeg", width: 110, height: 46 },
 ];
 
 export default function HeroSection() {
@@ -82,63 +76,22 @@ export default function HeroSection() {
     <section style={{ fontFamily: "'Segoe UI', Arial, sans-serif" }}>
 
       {/* ── Hero ── */}
-      <div style={{ position: "relative", minHeight: "90vh", overflow: "hidden", display: "flex", alignItems: "center" }}>
-
-        {/* Background video */}
-        <video
-          autoPlay muted loop playsInline
-          style={{
-            position: "absolute", inset: 0,
-            width: "100%", height: "100%",
-            objectFit: "cover", zIndex: 0,
-          }}
-        >
+      <div className="hero-wrap">
+        <video autoPlay muted loop playsInline className="hero-video">
           <source src="/hero page.mp4" type="video/mp4" />
         </video>
 
-        {/* Light overlay */}
-        <div style={{
-          position: "absolute", inset: 0,
-          background: "linear-gradient(to right, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.60) 55%, rgba(255,255,255,0.08) 100%)",
-          zIndex: 1,
-        }} />
+        <div className="hero-overlay" />
 
-        {/* Content */}
-        <div style={{
-          position: "relative", zIndex: 2,
-          maxWidth: 1280,
-          margin: "0 auto",
-          padding: "100px 48px 80px",
-          width: "100%",
-        }}>
-          <div style={{ maxWidth: 560, marginTop: "50px" }}>
+        <div className="hero-content">
+          <div className="hero-inner">
 
-            {/* Eyebrow */}
-            <p style={{
-              fontSize: 13,
-              fontWeight: 600,
-              color: "#0C4A6E",
-              letterSpacing: "1px",
-              textTransform: "uppercase",
-              marginBottom: 20,
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-            }}>
-              <span style={{ width: 32, height: 2, background: "#38BDF8", display: "inline-block" }} />
+            <p className="eyebrow">
+              <span className="eyebrow-line" />
               WHO-GMP Certified Pharmaceutical Company
             </p>
 
-            {/* Headline */}
-            <h1 style={{
-              fontSize: "clamp(40px, 5vw, 64px)",
-              fontWeight: 900,
-              lineHeight: 1.08,
-              color: "#38BDF8",
-              margin: "0 0 16px",
-              textTransform: "uppercase",
-              letterSpacing: "-0.5px",
-            }}>
+            <h1 className="headline">
               Creating
               <br />
               <span style={{ color: "#0C4A6E" }}>Healthier Smiles,</span>
@@ -146,71 +99,17 @@ export default function HeroSection() {
               Stronger Future
             </h1>
 
-            {/* Rule */}
-            <div style={{
-              width: 80, height: 3,
-              background: "linear-gradient(to right, #38BDF8, #0C4A6E)",
-              borderRadius: 2,
-              margin: "20px 0 24px",
-            }} />
+            <div className="rule" />
 
-            {/* Sub-copy */}
-            <p style={{
-              fontSize: 16,
-              lineHeight: 1.75,
-              color: "#0C4A6E",
-              maxWidth: 460,
-              margin: "0 0 36px",
-            }}>
+            <p className="subcopy">
               WHO-GMP Certified Pharmaceutical Company Manufacturing High-Quality Tablets, Capsules, Syrups and Injectables.
             </p>
 
-            {/* CTA Buttons */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
-              <Link
-                href="/products"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: "14px 28px",
-                  background: "#0C4A6E",
-                  color: "#fff",
-                  fontWeight: 700,
-                  fontSize: 13.5,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.5px",
-                  textDecoration: "none",
-                  borderRadius: 6,
-                  transition: "background 0.2s",
-                }}
-                onMouseEnter={e => (e.currentTarget.style.background = "#38BDF8")}
-                onMouseLeave={e => (e.currentTarget.style.background = "#0C4A6E")}
-              >
+            <div className="cta-row">
+              <Link href="/products" className="btn btn-primary">
                 Explore Products →
               </Link>
-
-              <Link
-                href="/franchise"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  padding: "14px 28px",
-                  background: "transparent",
-                  color: "#0C4A6E",
-                  fontWeight: 700,
-                  fontSize: 13.5,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.5px",
-                  textDecoration: "none",
-                  borderRadius: 6,
-                  border: "2px solid #0C4A6E",
-                  transition: "all 0.2s",
-                }}
-                onMouseEnter={e => { e.currentTarget.style.background = "#0C4A6E"; e.currentTarget.style.color = "#fff"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#0C4A6E"; }}
-              >
+              <Link href="/franchise" className="btn btn-outline">
                 Franchise / PCD Enquiry →
               </Link>
             </div>
@@ -220,184 +119,307 @@ export default function HeroSection() {
       </div>
 
       {/* ── Partners / Accreditations ── */}
-      <div style={{
-        background: "linear-gradient(180deg, #F0F9FF 0%, #FFFFFF 100%)",
-        borderTop: "1px solid #E0F2FE",
-        padding: "64px 48px",
-      }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+      
 
-          {/* Section heading */}
-          <div style={{ textAlign: "center", marginBottom: 44 }}>
-            <p style={{
-              fontSize: 13,
-              fontWeight: 600,
-              color: "#38BDF8",
-              letterSpacing: "1px",
-              textTransform: "uppercase",
-              marginBottom: 12,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 8,
-            }}>
-              <span style={{ width: 24, height: 2, background: "#38BDF8", display: "inline-block" }} />
-              About Our Standards
-              <span style={{ width: 24, height: 2, background: "#38BDF8", display: "inline-block" }} />
-            </p>
-            <h2 style={{
-              fontSize: "clamp(26px, 3vw, 34px)",
-              fontWeight: 800,
-              color: "#0C4A6E",
-              margin: "0 0 12px",
-            }}>
-              We Offer Quality Drugs from a World-Class Manufacturing Facility
-            </h2>
-            <p style={{
-              fontSize: 15,
-              lineHeight: 1.7,
-              color: "#475569",
-              maxWidth: 640,
-              margin: "0 auto",
-            }}>
-              Every product we manufacture is backed by internationally recognised regulatory
-              bodies and quality partners — our commitment to safety, compliance, and trust.
-            </p>
-          </div>
+      <style jsx>{`
+        /* ===== HERO ===== */
+        .hero-wrap {
+          position: relative;
+          min-height: 90vh;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+        }
+        .hero-video {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: 0;
+        }
+        .hero-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to right, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.60) 55%, rgba(255,255,255,0.08) 100%);
+          z-index: 1;
+        }
+        .hero-content {
+          position: relative;
+          z-index: 2;
+          max-width: 1280px;
+          margin: 0 auto;
+          padding: 100px 48px 80px;
+          width: 100%;
+        }
+        .hero-inner {
+          max-width: 560px;
+          margin-top: 50px;
+        }
+        .eyebrow {
+          font-size: 13px;
+          font-weight: 600;
+          color: #0C4A6E;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .eyebrow-line {
+          width: 32px;
+          height: 2px;
+          background: #38BDF8;
+          display: inline-block;
+          flex-shrink: 0;
+        }
+        .headline {
+          font-size: clamp(36px, 8vw, 64px);
+          font-weight: 900;
+          line-height: 1.08;
+          color: #38BDF8;
+          margin: 0 0 16px;
+          text-transform: uppercase;
+          letter-spacing: -0.5px;
+        }
+        .rule {
+          width: 80px;
+          height: 3px;
+          background: linear-gradient(to right, #38BDF8, #0C4A6E);
+          border-radius: 2px;
+          margin: 20px 0 24px;
+        }
+        .subcopy {
+          font-size: 16px;
+          line-height: 1.75;
+          color: #0C4A6E;
+          max-width: 460px;
+          margin: 0 0 36px;
+        }
+        .cta-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 16px;
+        }
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 14px 28px;
+          font-weight: 700;
+          font-size: 13.5px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          text-decoration: none;
+          border-radius: 6px;
+          transition: all 0.2s;
+        }
+        .btn-primary {
+          background: #0C4A6E;
+          color: #fff;
+        }
+        .btn-primary:hover {
+          background: #38BDF8;
+        }
+        .btn-outline {
+          background: transparent;
+          color: #0C4A6E;
+          border: 2px solid #0C4A6E;
+        }
+        .btn-outline:hover {
+          background: #0C4A6E;
+          color: #fff;
+        }
 
-          {/* Logo grid */}
-          <div style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "20px",
-          }}>
-            {partners.map((partner) => (
-              <div
-                key={partner.name}
-                title={partner.name}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: "#fff",
-                  border: "1px solid #E2E8F0",
-                  borderRadius: 12,
-                  padding: "20px 28px",
-                  minWidth: 160,
-                  minHeight: 96,
-                  filter: "grayscale(100%)",
-                  opacity: 0.75,
-                  transition: "filter 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease",
-                  cursor: "default",
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.filter = "grayscale(0%)";
-                  e.currentTarget.style.opacity = "1";
-                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(12,74,110,0.12)";
-                  e.currentTarget.style.transform = "translateY(-3px)";
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.filter = "grayscale(100%)";
-                  e.currentTarget.style.opacity = "0.75";
-                  e.currentTarget.style.boxShadow = "none";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
-              >
-              <div
-  style={{
-    width: 150,
-    height: 70,
-    position: "relative",
-  }}
->
-  <Image
-    src={partner.src}
-    alt={partner.name}
-    fill
-    style={{
-      objectFit: "contain",
-    }}
-  />
-</div>
-              </div>
-            ))}
+        /* ===== PARTNERS ===== */
+        .partners-wrap {
+          background: linear-gradient(180deg, #F0F9FF 0%, #FFFFFF 100%);
+          border-top: 1px solid #E0F2FE;
+          padding: 64px 48px;
+        }
+        .partners-inner {
+          max-width: 1280px;
+          margin: 0 auto;
+        }
+        .section-heading {
+          text-align: center;
+          margin-bottom: 44px;
+        }
+        .section-eyebrow {
+          font-size: 13px;
+          font-weight: 600;
+          color: #38BDF8;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          margin-bottom: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+        }
+        .section-eyebrow-line {
+          width: 24px;
+          height: 2px;
+          background: #38BDF8;
+          display: inline-block;
+        }
+        .section-title {
+          font-size: clamp(24px, 5vw, 34px);
+          font-weight: 800;
+          color: #0C4A6E;
+          margin: 0 0 12px;
+        }
+        .section-sub {
+          font-size: 15px;
+          line-height: 1.7;
+          color: #475569;
+          max-width: 640px;
+          margin: 0 auto;
+        }
+        .logo-grid {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+        }
+        .logo-card {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: #fff;
+          border: 1px solid #E2E8F0;
+          border-radius: 12px;
+          padding: 20px 28px;
+          min-width: 160px;
+          min-height: 96px;
+          filter: grayscale(100%);
+          opacity: 0.75;
+          transition: filter 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+          cursor: default;
+        }
+        .logo-card:hover {
+          filter: grayscale(0%);
+          opacity: 1;
+          box-shadow: 0 8px 24px rgba(12,74,110,0.12);
+          transform: translateY(-3px);
+        }
+        .logo-frame {
+          width: 150px;
+          height: 70px;
+          position: relative;
+        }
+        .logo-card-badge {
+          padding: 16px 24px;
+        }
+        .logo-card-who {
+          min-width: 220px;
+          min-height: 120px;
+          padding: 20px 28px;
+        }
+        .office-strip {
+          margin-top: 44px;
+          padding-top: 28px;
+          border-top: 1px solid #E2E8F0;
+          text-align: center;
+        }
+        .office-line {
+          font-size: 13.5px;
+          color: #475569;
+          margin: 0;
+        }
+        .office-line-bold {
+          color: #0C4A6E;
+          margin: 0 0 4px;
+          font-weight: 600;
+        }
 
-            {/* Fallback badges — swap for real logo files when available */}
-            <div
-              title="100% Quality Assured"
-              style={{
-                display: "flex", alignItems: "center", justifyContent: "center",
-                background: "#fff", border: "1px solid #E2E8F0", borderRadius: 12,
-                padding: "16px 24px", minWidth: 160, minHeight: 96,
-                filter: "grayscale(100%)", opacity: 0.75,
-                transition: "filter 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease",
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.filter = "grayscale(0%)";
-                e.currentTarget.style.opacity = "1";
-                e.currentTarget.style.boxShadow = "0 8px 24px rgba(12,74,110,0.12)";
-                e.currentTarget.style.transform = "translateY(-3px)";
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.filter = "grayscale(100%)";
-                e.currentTarget.style.opacity = "0.75";
-                e.currentTarget.style.boxShadow = "none";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              <IconQualitySeal />
-            </div>
+        /* ===== TABLET ===== */
+        @media (max-width: 900px) {
+          .hero-content {
+            padding: 80px 32px 60px;
+          }
+          .partners-wrap {
+            padding: 48px 32px;
+          }
+        }
 
-            <div
-              title="World Health Organization"
-              style={{
-                display: "flex", alignItems: "center", justifyContent: "center",
-                background: "#fff", border: "1px solid #E2E8F0", borderRadius: 12,
-                padding: "20px 28px", minWidth: 220, minHeight: 120,
-                filter: "grayscale(100%)", opacity: 0.75,
-                transition: "filter 0.25s ease, opacity 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease",
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.filter = "grayscale(0%)";
-                e.currentTarget.style.opacity = "1";
-                e.currentTarget.style.boxShadow = "0 8px 24px rgba(12,74,110,0.12)";
-                e.currentTarget.style.transform = "translateY(-3px)";
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.filter = "grayscale(100%)";
-                e.currentTarget.style.opacity = "0.75";
-                e.currentTarget.style.boxShadow = "none";
-                e.currentTarget.style.transform = "translateY(0)";
-              }}
-            >
-              <IconWHO />
-            </div>
-          </div>
+        /* ===== MOBILE ===== */
+        @media (max-width: 640px) {
+          .hero-wrap {
+            min-height: 100vh;
+            align-items: flex-end;
+          }
+          .hero-overlay {
+            background: linear-gradient(
+              to top,
+              rgba(255,255,255,0.96) 0%,
+              rgba(255,255,255,0.85) 45%,
+              rgba(255,255,255,0.55) 100%
+            );
+          }
+          .hero-content {
+            padding: 32px 20px 48px;
+          }
+          .hero-inner {
+            max-width: 100%;
+            margin-top: 0;
+          }
+          .headline {
+            font-size: clamp(32px, 10vw, 44px);
+          }
+          .subcopy {
+            font-size: 14.5px;
+            max-width: 100%;
+          }
+          .cta-row {
+            flex-direction: column;
+            gap: 12px;
+          }
+          .btn {
+            width: 100%;
+            padding: 14px 20px;
+          }
 
-          {/* Registered office strip */}
-          <div style={{
-            marginTop: 44,
-            paddingTop: 28,
-            borderTop: "1px solid #E2E8F0",
-            textAlign: "center",
-          }}>
-            <p style={{ fontSize: 13.5, color: "#0C4A6E", margin: "0 0 4px", fontWeight: 600 }}>
-              Regd. Office: Galacus Healthcare Pvt. Ltd., Office No. 201, CTS No. 11/B,
-              Phatak Park, Erandwane, Karve Road, Pune – 411004
-            </p>
-            <p style={{ fontSize: 13.5, color: "#475569", margin: 0 }}>
-              Mob: 9890288010 / 9049733276 &nbsp;•&nbsp; Email:{" "}
-              <a href="mailto:ho@galacushealthcare.com" style={{ color: "#0C4A6E", fontWeight: 600, textDecoration: "none" }}>
-                ho@galacushealthcare.com
-              </a>
-            </p>
-          </div>
+          .partners-wrap {
+            padding: 40px 16px;
+          }
+          .section-title {
+            padding: 0 8px;
+          }
+          .section-sub {
+            padding: 0 8px;
+          }
+          .logo-grid {
+            gap: 14px;
+          }
+          .logo-card {
+            min-width: 130px;
+            min-height: 80px;
+            padding: 14px 18px;
+            flex: 1 1 calc(50% - 14px);
+          }
+          .logo-frame {
+            width: 110px;
+            height: 50px;
+          }
+          .logo-card-who {
+            min-width: 100%;
+            flex-basis: 100%;
+          }
+          .office-line {
+            padding: 0 8px;
+          }
+        }
 
-        </div>
-      </div>
-
+        @media (max-width: 400px) {
+          .logo-card {
+            flex-basis: 100%;
+          }
+        }
+      `}</style>
     </section>
   );
 }
