@@ -362,7 +362,7 @@ export default function HeroSection() {
             );
           }
           .hero-content {
-            padding: 12px 20px 48px;
+            padding: 12px 20px 100px;
           }
           .hero-inner {
             max-width: 100%;

@@ -379,7 +379,7 @@ export default function Footer() {
             </span>
             <span style={{ width: 16, height: 16, position: "relative", flexShrink: 0 }}>
               <Image
-                src="/images/codewinx.jpeg"
+                src="/images/codewinx.png.png"
                 alt="Codewinx IT Solutions"
                 fill
                 style={{ objectFit: "contain" }}
