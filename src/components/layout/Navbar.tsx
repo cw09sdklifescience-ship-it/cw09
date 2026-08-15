@@ -160,7 +160,7 @@ export default function Navbar() {
                 href="/enquiry"
                 className="hidden rounded-lg bg-[#0C4A6E] px-6 py-3 font-semibold text-white shadow-lg transition hover:bg-[#38BDF8] lg:flex"
               >
-                Enquiry Now
+                Enquiry Today
               </Link>
 
               <button
