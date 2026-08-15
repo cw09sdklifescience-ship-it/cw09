@@ -327,31 +327,68 @@ export default function Footer() {
           justifyContent: "space-between",
           alignItems: "center",
           flexWrap: "wrap",
-          gap: 8,
+          gap: 12,
         }}
+        className="footer-bottom-bar"
       >
         <p style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", margin: 0 }}>
           © {new Date().getFullYear()} SDK Life Science Private Limited. All Rights Reserved.
         </p>
-        <div style={{ display: "flex", gap: 20 }}>
-          {["Privacy Policy", "Terms & Conditions"].map(item => (
-            <Link
-              key={item}
-              href="#"
-              style={{
-                fontSize: 11,
-                color: "rgba(255,255,255,0.3)",
-                textDecoration: "none",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = GOLD)}
-              onMouseLeave={e =>
-                ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.3)")
-              }
-            >
-              {item}
-            </Link>
-          ))}
+
+        <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 20 }}>
+            {["Privacy Policy", "Terms & Conditions"].map(item => (
+              <Link
+                key={item}
+                href="#"
+                style={{
+                  fontSize: 11,
+                  color: "rgba(255,255,255,0.3)",
+                  textDecoration: "none",
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = GOLD)}
+                onMouseLeave={e =>
+                  ((e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.3)")
+                }
+              >
+                {item}
+              </Link>
+            ))}
+          </div>
+
+          {/* ── Developed by Codewinx IT Solutions ── */}
+          <a
+            href="https://codewinxit.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 6,
+              paddingLeft: 20,
+              borderLeft: "1px solid rgba(255,255,255,0.12)",
+              textDecoration: "none",
+              transition: "opacity 0.2s",
+            }}
+            onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.opacity = "0.8")}
+            onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.opacity = "1")}
+          >
+            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.35)" }}>
+              Designed &amp; Developed by
+            </span>
+            <span style={{ width: 16, height: 16, position: "relative", flexShrink: 0 }}>
+              <Image
+                src="/images/codewinx.png.png"
+                alt="Codewinx IT Solutions"
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </span>
+            <span style={{ fontSize: 11, fontWeight: 700, color: GOLD }}>
+              Codewinx IT Solutions
+            </span>
+          </a>
         </div>
       </div>
 
@@ -364,6 +401,10 @@ export default function Footer() {
         @media (max-width: 560px) {
           .footer-grid {
             grid-template-columns: 1fr !important;
+          }
+          .footer-bottom-bar {
+            flex-direction: column !important;
+            text-align: center !important;
           }
         }
       `}</style>
