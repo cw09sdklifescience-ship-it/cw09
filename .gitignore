@@ -1,0 +1,25 @@
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Node
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.production
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Sitemap (generated on build)
+public/sitemap*.xml
+public/robots.txt
