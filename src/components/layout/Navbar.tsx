@@ -5,7 +5,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-import { Menu, X, Phone, Mail, ShieldCheck } from "lucide-react";
+import {
+  Menu,
+  X,
+  Phone,
+  Mail,
+  ShieldCheck,
+  ChevronRight,
+  Home,
+  Info,
+  Package,
+  BadgeCheck,
+  PhoneCall,
+} from "lucide-react";
 
 const LOGO = "/images/logosdk.png";
 
@@ -15,11 +27,11 @@ const topBar = {
 };
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Products", href: "/products" },
-  { label: "Quality", href: "/quality" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: "/", icon: Home },
+  { label: "About", href: "/about", icon: Info },
+  { label: "Products", href: "/products", icon: Package },
+  { label: "Quality", href: "/quality", icon: BadgeCheck },
+  { label: "Contact", href: "/contact", icon: PhoneCall },
 ];
 
 export default function Navbar() {
@@ -48,6 +60,11 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <>
@@ -81,6 +98,12 @@ export default function Navbar() {
               WHO-GMP Certified Pharmaceutical Company
             </div>
           </div>
+        </div>
+
+        {/* Mini contact strip (mobile only) */}
+        <div className="flex items-center justify-center gap-2 bg-[#0C4A6E] px-4 py-1.5 text-center text-[11px] font-medium text-[#BAE6FD] lg:hidden">
+          <ShieldCheck size={12} className="flex-shrink-0 text-[#7DD3FC]" />
+          <span className="truncate">WHO-GMP Certified Pharmaceutical Company</span>
         </div>
 
         {/* Main Navbar */}
@@ -117,6 +140,10 @@ export default function Navbar() {
                 <p className="mt-0.5 hidden text-xs text-gray-500 lg:block">
                   Creating Healthier Smiles, Stronger Future
                 </p>
+
+                <p className="mt-0.5 text-[10px] font-semibold uppercase tracking-widest text-[#38BDF8] sm:hidden">
+                  Private Limited
+                </p>
               </div>
             </Link>
 
@@ -147,80 +174,156 @@ export default function Navbar() {
                 Enquiry Now
               </Link>
 
+              {/* Animated hamburger */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label={mobileOpen ? "Close menu" : "Open menu"}
                 aria-expanded={mobileOpen}
-                className="flex h-10 w-10 items-center justify-center rounded-md text-[#0C4A6E] transition hover:bg-gray-100 lg:hidden"
+                className="relative flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 transition active:scale-95 lg:hidden"
               >
-                {mobileOpen ? <X size={26} /> : <Menu size={26} />}
+                <span className="relative flex h-4 w-5 flex-col justify-between">
+                  <span
+                    className={`block h-[2px] w-full rounded-full bg-[#0C4A6E] transition-all duration-300 ${
+                      mobileOpen ? "translate-y-[7px] rotate-45" : ""
+                    }`}
+                  />
+                  <span
+                    className={`block h-[2px] w-full rounded-full bg-[#0C4A6E] transition-all duration-300 ${
+                      mobileOpen ? "opacity-0" : "opacity-100"
+                    }`}
+                  />
+                  <span
+                    className={`block h-[2px] w-full rounded-full bg-[#0C4A6E] transition-all duration-300 ${
+                      mobileOpen ? "-translate-y-[7px] -rotate-45" : ""
+                    }`}
+                  />
+                </span>
               </button>
             </div>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        {mobileOpen && (
-          <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-gray-200 bg-white shadow-xl lg:hidden">
-            <div className="flex flex-col py-2">
-              {navLinks.map((item) => (
-                <Link
-                  href={item.href}
-                  key={item.label}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block border-b border-gray-100 px-6 py-4 font-semibold transition
-                  ${
-                    isActive(item.href)
-                      ? "bg-sky-50 text-[#38BDF8]"
-                      : "text-[#0C4A6E] hover:bg-gray-50 hover:text-[#38BDF8]"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-
-              {/* Mobile CTA */}
-              <div className="px-6 pt-6">
-                <Link
-                  href="/enquiry"
-                  onClick={() => setMobileOpen(false)}
-                  className="flex justify-center rounded-lg bg-[#0C4A6E] py-3 font-semibold text-white transition hover:bg-[#38BDF8]"
-                >
-                  Enquiry Now
-                </Link>
-              </div>
-
-              {/* Certification badge */}
-              <div className="mx-6 mt-5 flex items-center justify-center gap-2 rounded-lg bg-[#0C4A6E]/5 px-4 py-3 text-center text-xs font-semibold text-[#0C4A6E]">
-                <ShieldCheck size={16} className="flex-shrink-0 text-[#38BDF8]" />
-                WHO-GMP Certified Pharmaceutical Company
-              </div>
-
-              {/* Contact */}
-              <div className="mt-5 border-t bg-gray-50 px-6 py-5">
-                <a
-                  href={`tel:${topBar.phone}`}
-                  className="mb-4 flex items-center gap-3 text-sm text-gray-600"
-                >
-                  <Phone size={16} />
-                  {topBar.phone}
-                </a>
-
-                <a
-                  href={`mailto:${topBar.email}`}
-                  className="flex items-center gap-3 text-sm text-gray-600"
-                >
-                  <Mail size={16} />
-                  {topBar.email}
-                </a>
-              </div>
-            </div>
-          </div>
-        )}
       </header>
 
+      {/* Backdrop overlay */}
+      <div
+        onClick={() => setMobileOpen(false)}
+        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 lg:hidden
+        ${mobileOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
+      />
+
+      {/* Mobile Slide-in Menu */}
+      <div
+        className={`fixed right-0 top-0 z-50 h-full w-[82%] max-w-sm transform overflow-y-auto bg-white shadow-2xl transition-transform duration-300 ease-out lg:hidden
+        ${mobileOpen ? "translate-x-0" : "translate-x-full"}`}
+      >
+        {/* Menu header */}
+        <div className="flex items-center justify-between bg-[#0C4A6E] px-5 py-5">
+          <div className="flex items-center gap-3">
+            <Image
+              src={LOGO}
+              alt="SDK Life Science"
+              width={38}
+              height={38}
+              className="h-9 w-9 flex-shrink-0 rounded-full bg-white object-contain p-1"
+            />
+            <div>
+              <p className="text-sm font-bold text-white">SDK LIFE SCIENCE</p>
+              <p className="text-[10px] font-semibold uppercase tracking-[2px] text-[#7DD3FC]">
+                Private Limited
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={() => setMobileOpen(false)}
+            aria-label="Close menu"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+          >
+            <X size={20} />
+          </button>
+        </div>
+
+        {/* Nav links */}
+        <nav className="flex flex-col px-3 py-4">
+          {navLinks.map((item) => {
+            const Icon = item.icon;
+            const active = isActive(item.href);
+            return (
+              <Link
+                href={item.href}
+                key={item.label}
+                onClick={() => setMobileOpen(false)}
+                className={`group mb-1 flex items-center justify-between rounded-xl px-4 py-3.5 font-semibold transition
+                ${
+                  active
+                    ? "bg-[#0C4A6E] text-white shadow-md"
+                    : "text-gray-700 hover:bg-sky-50 hover:text-[#0C4A6E]"
+                }`}
+              >
+                <span className="flex items-center gap-3">
+                  <Icon
+                    size={18}
+                    className={active ? "text-[#7DD3FC]" : "text-[#38BDF8]"}
+                  />
+                  {item.label}
+                </span>
+                <ChevronRight
+                  size={16}
+                  className={`transition-transform ${
+                    active ? "text-[#7DD3FC]" : "text-gray-300 group-hover:translate-x-0.5"
+                  }`}
+                />
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* CTA */}
+        <div className="px-5 pt-2">
+          <Link
+            href="/enquiry"
+            onClick={() => setMobileOpen(false)}
+            className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#0C4A6E] to-[#38BDF8] py-3.5 font-semibold text-white shadow-lg transition active:scale-[0.98]"
+          >
+            Enquiry Now
+          </Link>
+        </div>
+
+        {/* Certification badge */}
+        <div className="mx-5 mt-5 flex items-center gap-2 rounded-xl bg-sky-50 px-4 py-3 text-xs font-semibold text-[#0C4A6E]">
+          <ShieldCheck size={18} className="flex-shrink-0 text-[#38BDF8]" />
+          WHO-GMP Certified Pharmaceutical Company
+        </div>
+
+        {/* Contact */}
+        <div className="mx-5 mb-8 mt-5 rounded-xl border border-gray-100 bg-gray-50 p-4">
+          <p className="mb-3 text-[11px] font-semibold uppercase tracking-widest text-gray-400">
+            Get in touch
+          </p>
+          <a
+            href={`tel:${topBar.phone}`}
+            className="mb-3 flex items-center gap-3 text-sm font-medium text-gray-700"
+          >
+            <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#0C4A6E]/10 text-[#0C4A6E]">
+              <Phone size={14} />
+            </span>
+            {topBar.phone}
+          </a>
+
+          <a
+            href={`mailto:${topBar.email}`}
+            className="flex items-center gap-3 text-sm font-medium text-gray-700"
+          >
+            <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#0C4A6E]/10 text-[#0C4A6E]">
+              <Mail size={14} />
+            </span>
+            {topBar.email}
+          </a>
+        </div>
+      </div>
+
       {/* Spacer so page content isn't hidden behind the fixed header */}
-      <div className="h-16 sm:h-20 lg:h-[calc(6rem+2.5rem)]" />
+      <div className="h-[68px] sm:h-20 lg:h-[calc(6rem+2.5rem)]" />
     </>
   );
 }
