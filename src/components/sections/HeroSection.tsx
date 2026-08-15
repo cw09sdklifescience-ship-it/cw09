@@ -144,18 +144,19 @@ export default function HeroSection() {
           background: linear-gradient(to right, rgba(255,255,255,0.90) 0%, rgba(255,255,255,0.60) 55%, rgba(255,255,255,0.08) 100%);
           z-index: 1;
         }
-        .hero-content {
-          position: relative;
-          z-index: 2;
-          max-width: 1280px;
-          margin: 0 auto;
-          padding: 100px 48px 80px;
-          width: 100%;
-        }
-        .hero-inner {
-          max-width: 560px;
-          margin-top: 50px;
-        }
+     .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 48px 80px;
+  width: 100%;
+}
+
+.hero-inner {
+  max-width: 560px;
+  margin-top: 0;
+}
         .eyebrow {
           font-size: 13px;
           font-weight: 600;
@@ -361,7 +362,7 @@ export default function HeroSection() {
             );
           }
           .hero-content {
-            padding: 32px 20px 48px;
+            padding: 12px 20px 48px;
           }
           .hero-inner {
             max-width: 100%;
