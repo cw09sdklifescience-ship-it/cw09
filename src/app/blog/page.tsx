@@ -15,7 +15,7 @@ const posts = [
 
 export default function BlogPage() {
   return (
-    <div className="pt-24">
+    <div>
       <section className="section-padding bg-surface">
         <div className="container-max">
           <h1 className="text-5xl font-display font-bold text-dark">Blog & News</h1>

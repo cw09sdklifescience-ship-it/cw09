@@ -44,7 +44,7 @@ export default function ProductsPage() {
   }, [search, selectedCategory]);
 
   return (
-    <main className="bg-[#F7FBF9] min-h-screen pt-20">
+    <main className="bg-[#F7FBF9] min-h-screen">
 
       {/* Hero */}
       <ProductHero />

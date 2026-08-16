@@ -69,7 +69,7 @@ const founderHighlights = [
 
 export default function AboutPage() {
   return (
-    <main className="pt-24 font-sans antialiased">
+    <main className="font-sans antialiased">
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden bg-[#0C4A6E] text-white">

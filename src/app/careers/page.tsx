@@ -16,7 +16,7 @@ const openings = [
 
 export default function CareersPage() {
   return (
-    <div className="pt-24">
+    <div>
       <section className="section-padding bg-surface">
         <div className="container-max">
           <span className="text-xs font-semibold text-primary-600 tracking-widest uppercase">Join Our Team</span>

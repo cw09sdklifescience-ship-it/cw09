@@ -56,7 +56,7 @@ export default function ContactPage() {
       <main style={{ background: BRAND.cream }}>
 
         {/* ── HERO ─────────────────────────────────────────── */}
-        <section className="relative overflow-hidden px-6 pt-36 pb-20" style={{ background: BRAND.deep }}>
+        <section className="relative overflow-hidden px-6 pt-16 pb-20" style={{ background: BRAND.deep }}>
           <svg
             aria-hidden="true"
             className="absolute inset-0 w-full h-full opacity-[0.07]"

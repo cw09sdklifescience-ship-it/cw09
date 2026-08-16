@@ -323,7 +323,7 @@ export default function Navbar() {
       </div>
 
       {/* Spacer so page content isn't hidden behind the fixed header */}
-      <div className="h-[52px] sm:h-20 lg:h-[136px]" />
+      <div className="h-[52px] sm:h-20 lg:h-132" />
     </>
   );
 }
