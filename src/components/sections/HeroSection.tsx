@@ -84,16 +84,16 @@ export default function HeroSection() {
           <source src="/hero page.mp4" type="video/mp4" />
         </video>
 
-        {/* overlay: top-fade on mobile, side-fade on desktop */}
+        {/* overlay: subtle dark gradient behind text only — video stays fully visible elsewhere */}
         <div
           className="absolute inset-0 z-10
-            bg-[linear-gradient(to_top,rgba(255,255,255,0.96)_0%,rgba(255,255,255,0.85)_45%,rgba(255,255,255,0.55)_100%)]
-            sm:bg-[linear-gradient(to_right,rgba(255,255,255,0.90)_0%,rgba(255,255,255,0.60)_55%,rgba(255,255,255,0.08)_100%)]"
+            bg-[linear-gradient(to_top,rgba(6,20,32,0.75)_0%,rgba(6,20,32,0.35)_45%,rgba(6,20,32,0)_100%)]
+            sm:bg-[linear-gradient(to_right,rgba(6,20,32,0.72)_0%,rgba(6,20,32,0.35)_55%,rgba(6,20,32,0)_100%)]"
         />
 
         <div className="relative z-20 mx-auto w-full max-w-[1280px] px-5 pb-[100px] pt-20 sm:px-8 sm:pb-[60px] sm:pt-20 lg:px-12 lg:pb-20 lg:pt-10">
           <div className="mt-0 max-w-full lg:max-w-[560px]">
-            <p className="mb-5 flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide text-[#0C4A6E]">
+            <p className="mb-5 flex items-center gap-2 text-[13px] font-semibold uppercase tracking-wide text-[#7DD3FC]">
               <span className="inline-block h-0.5 w-8 shrink-0 bg-[#38BDF8]" />
               WHO-GMP Certified Pharmaceutical Company
             </p>
@@ -101,27 +101,27 @@ export default function HeroSection() {
             <h1 className="mb-4 text-[clamp(32px,10vw,44px)] font-black uppercase leading-[1.08] tracking-tight text-[#38BDF8] sm:text-[clamp(36px,8vw,64px)]">
               Creating
               <br />
-              <span className="text-[#0C4A6E]">Healthier Smiles,</span>
+              <span className="text-white">Healthier Smiles,</span>
               <br />
               Stronger Future
             </h1>
 
-            <div className="my-5 h-[3px] w-20 rounded-sm bg-gradient-to-r from-[#38BDF8] to-[#0C4A6E]" />
+            <div className="my-5 h-[3px] w-20 rounded-sm bg-gradient-to-r from-[#38BDF8] to-white" />
 
-            <p className="mb-9 max-w-full text-[14.5px] leading-[1.75] text-[#0C4A6E] sm:max-w-[460px] sm:text-base">
+            <p className="mb-9 max-w-full text-[14.5px] leading-[1.75] text-white/90 sm:max-w-[460px] sm:text-base">
               WHO-GMP Certified Pharmaceutical Company Manufacturing High-Quality Tablets, Capsules, Syrups and Injectables.
             </p>
 
             <div className="flex flex-col flex-wrap gap-3 sm:flex-row sm:gap-4">
               <Link
                 href="/products"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#0C4A6E] px-5 py-3.5 text-[13.5px] font-bold uppercase tracking-wide text-white no-underline transition-all duration-200 hover:bg-[#38BDF8] sm:w-auto sm:px-7"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-[#38BDF8] px-5 py-3.5 text-[13.5px] font-bold uppercase tracking-wide text-[#0C4A6E] no-underline transition-all duration-200 hover:bg-white sm:w-auto sm:px-7"
               >
                 Explore Products →
               </Link>
               <Link
                 href="/franchise"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md border-2 border-[#0C4A6E] bg-transparent px-5 py-3.5 text-[13.5px] font-bold uppercase tracking-wide text-[#0C4A6E] no-underline transition-all duration-200 hover:bg-[#0C4A6E] hover:text-white sm:w-auto sm:px-7"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md border-2 border-white/80 bg-transparent px-5 py-3.5 text-[13.5px] font-bold uppercase tracking-wide text-white no-underline transition-all duration-200 hover:bg-white hover:text-[#0C4A6E] sm:w-auto sm:px-7"
               >
                 Franchise / PCD Enquiry →
               </Link>
