@@ -379,12 +379,7 @@ export default function Footer() {
               Designed &amp; Developed by
             </span>
             <span style={{ width: 16, height: 16, position: "relative", flexShrink: 0 }}>
-              <Image
-                src="/images/codewinx.png.png"
-                alt="Codewinx IT Solutions"
-                fill
-                style={{ objectFit: "contain" }}
-              />
+             
             </span>
             <span style={{ fontSize: 11, fontWeight: 700, color: GOLD }}>
               Codewinx IT Solutions
