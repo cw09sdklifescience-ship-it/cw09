@@ -252,7 +252,7 @@ export default function AboutPage() {
 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0C4A6E]/50 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white/95 backdrop-blur-sm px-4 py-3">
-                  <p className="text-[14px] font-bold text-[#0C4A6E] leading-tight">Dr. Rajesh Mehta</p>
+                  <p className="text-[14px] font-bold text-[#0C4A6E] leading-tight">Dr. Suraj Nagargoje </p>
                   <p className="text-[11px] font-semibold uppercase tracking-wide text-[#0C4A6E]/70 mt-0.5">
                     Founder &amp; Managing Director
                   </p>
@@ -283,7 +283,7 @@ export default function AboutPage() {
 
               <div className="mt-6 space-y-4 text-[15px] leading-[1.85] text-gray-600">
                 <p>
-                  Dr. Rajesh Mehta founded Pharma Medicline in 2010 after more than a decade
+                  Dr.Suraj Nagargoje founded Pharma Medicline in 2010 after more than a decade
                   working across formulation and quality control in India's pharmaceutical
                   sector. He saw firsthand how inconsistent quality and high costs kept
                   effective treatment out of reach for many patients — and set out to build a
@@ -325,7 +325,7 @@ export default function AboutPage() {
                     <rect x="2" y="4" width="20" height="16" rx="2" />
                     <path d="m22 6-10 7L2 6" />
                   </svg>
-                  founder@pharmamedicline.com
+                  info@sdklifescience.com
                 </a>
                 <a
                   href="/contact"

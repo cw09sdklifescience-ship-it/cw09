@@ -9,6 +9,7 @@ const quickLinks = [
   { label: "Quality",         href: "/quality" },
   { label: "Franchise / PCD", href: "/franchise" },
   { label: "Contact Us",      href: "/contact" },
+  
 ];
 
 const productLinks = [
@@ -130,7 +131,7 @@ export default function Footer() {
             {[
               {
                 Icon: MapPin,
-                text: "SCO 61, 1st Floor, Sector-38, Chandigarh - 160036",
+                text: "Satyakamal Residency P.No. 9 Satyakamal Colony. Talegaon Pune - 410507",
                 multiline: true,
               },
               { Icon: Phone, text: "+91 8805131888" },
@@ -293,7 +294,7 @@ export default function Footer() {
             <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
               <MapPin size={13} style={{ color: GOLD, flexShrink: 0, marginTop: 2 }} />
               <span style={{ fontSize: 12, color: "rgba(255,255,255,0.45)", lineHeight: 1.6 }}>
-                SCO 61, 1st Floor, Sector-38,<br />Chandigarh - 160036
+                Satyakamal Residency P.No. 9 Satyakamal Colony. Talegaon Pune - 410507,
               </span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -359,7 +360,7 @@ export default function Footer() {
 
           {/* ── Developed by Codewinx IT Solutions ── */}
           <a
-            href="https://codewinxit.com"
+            href="https://codewinxitsolution.com"
             target="_blank"
             rel="noopener noreferrer"
             style={{

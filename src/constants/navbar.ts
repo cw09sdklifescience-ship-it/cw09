@@ -3,6 +3,8 @@
 // (see src/components/layout/Navbar.tsx). Kept minimal to avoid
 // broken imports / build errors.
 
+import { label } from "framer-motion/client";
+
 export const BRAND = {
   navyDark: "#202822",
   navy: "#161C18",
@@ -23,4 +25,5 @@ export const navLinks = [
   { label: "Our Products", href: "/products" },
   { label: "Quality", href: "/quality" },
   { label: "Contact Us", href: "/contact" },
+  {label:"Enquiry",href:"/enquiry"}
 ];
