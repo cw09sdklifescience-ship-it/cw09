@@ -11,6 +11,7 @@ import {
   RefreshCw,
   CheckCircle2,
   ArrowRight,
+  ArrowDown,
   PackageCheck,
   Microscope,
   Thermometer,
@@ -21,6 +22,7 @@ import {
   Sparkles,
   Layers,
   Scale,
+  BadgeCheck,
 } from "lucide-react";
 
 /* ────────────────────────────────────────────────────────────
@@ -41,6 +43,10 @@ const BRAND = {
 };
 
 const serif = { fontFamily: "serif,font-sans antialiased" };
+
+/* Hero background image — put your photo at /public/images/quality-hero.jpg
+   (or change this path / use any image URL) */
+const HERO_IMAGE = "/images/Hero-Quality.jpeg";
 
 /* ────────────────────────────────────────────────────────────
    Scroll reveal hook
@@ -190,6 +196,104 @@ function IconTile({ Icon, label, dark = false }) {
 }
 
 /* ────────────────────────────────────────────────────────────
+   Hero visual — "Batch Release Record" card.
+   Echoes the batch-record / audit-trail language used across the page.
+   ──────────────────────────────────────────────────────────── */
+function BatchRecordCard() {
+  const stages = [
+    { Icon: FlaskConical, label: "Raw material testing" },
+    { Icon: Search, label: "In-process monitoring" },
+    { Icon: Microscope, label: "Finished product analysis" },
+    { Icon: PackageCheck, label: "Packaging verification" },
+    { Icon: FileText, label: "Batch documentation review" },
+  ];
+
+  return (
+    <div className="relative">
+      {/* soft glow behind the card */}
+      <div
+        aria-hidden="true"
+        className="absolute -inset-6 rounded-[2rem] blur-3xl opacity-40"
+        style={{ background: `radial-gradient(circle at 50% 40%, ${BRAND.gold}, transparent 70%)` }}
+      />
+
+      <div
+        className="relative rounded-2xl border p-6 sm:p-7 backdrop-blur-sm"
+        style={{
+          background: "rgba(240,249,255,0.07)",
+          borderColor: "rgba(240,249,255,0.18)",
+          boxShadow: "0 30px 60px -20px rgba(0,0,0,0.45)",
+        }}
+      >
+        {/* header */}
+        <div className="flex items-start justify-between gap-4 pb-5 border-b" style={{ borderColor: "rgba(240,249,255,0.14)" }}>
+          <div>
+            <p className="text-[10px] font-semibold tracking-[2.5px] uppercase" style={{ color: BRAND.goldLight }}>
+              Batch Release Record
+            </p>
+            <p className="mt-1.5 text-[17px] font-bold" style={{ ...serif, color: BRAND.cream }}>
+              Quality Clearance
+            </p>
+          </div>
+          <div
+            className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+            style={{ background: "rgba(56,189,248,0.16)", color: BRAND.gold }}
+          >
+            <ShieldCheck size={22} strokeWidth={1.7} />
+          </div>
+        </div>
+
+        {/* stages */}
+        <ol className="relative mt-5 space-y-3.5">
+          <span
+            aria-hidden="true"
+            className="absolute left-[17px] top-4 bottom-4 w-px"
+            style={{ background: "rgba(125,211,252,0.3)" }}
+          />
+          {stages.map(({ Icon, label }) => (
+            <li key={label} className="relative flex items-center gap-3.5">
+              <span
+                className="relative z-10 w-9 h-9 rounded-full flex items-center justify-center shrink-0 border"
+                style={{
+                  background: BRAND.botanical,
+                  borderColor: "rgba(125,211,252,0.45)",
+                  color: BRAND.goldLight,
+                }}
+              >
+                <Icon size={15} strokeWidth={1.8} />
+              </span>
+              <span className="flex-1 text-[13.5px] font-medium" style={{ color: "rgba(240,249,255,0.92)" }}>
+                {label}
+              </span>
+              <CheckCircle2 size={17} style={{ color: BRAND.gold }} className="shrink-0" />
+            </li>
+          ))}
+        </ol>
+
+        {/* result */}
+        <div
+          className="mt-6 flex items-center justify-between gap-3 rounded-xl px-4 py-3.5"
+          style={{ background: "rgba(56,189,248,0.14)", border: "1px solid rgba(125,211,252,0.35)" }}
+        >
+          <div className="flex items-center gap-2.5">
+            <BadgeCheck size={20} style={{ color: BRAND.goldLight }} />
+            <span className="text-[13px] font-semibold" style={{ color: BRAND.cream }}>
+              Released for distribution
+            </span>
+          </div>
+          <span
+            className="text-[10px] font-bold tracking-[2px] uppercase px-2.5 py-1 rounded-full"
+            style={{ background: BRAND.gold, color: BRAND.navy }}
+          >
+            Approved
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ────────────────────────────────────────────────────────────
    Page
    ──────────────────────────────────────────────────────────── */
 export default function QualityPage() {
@@ -198,13 +302,35 @@ export default function QualityPage() {
 
       {/* ── HERO ───────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden px-6 pt-40 pb-28"
+        className="relative overflow-hidden px-6 pt-36 pb-0 sm:pt-40"
         style={{ background: BRAND.botanical }}
       >
+        {/* background photo */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${HERO_IMAGE})` }}
+        />
+        {/* deep-sky overlay keeps text readable and ties the photo to the brand */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(100deg, rgba(12,74,110,0.96) 0%, rgba(12,74,110,0.86) 45%, rgba(7,89,133,0.62) 100%)",
+          }}
+        />
+        {/* bottom fade so the stats strip sits cleanly */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-40"
+          style={{ background: "linear-gradient(to top, rgba(12,74,110,0.9), transparent)" }}
+        />
+
         {/* faint molecular-lattice texture, on-subject for a pharma brand */}
         <svg
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full opacity-[0.07]"
+          className="absolute inset-0 w-full h-full opacity-[0.05]"
           style={{ color: BRAND.gold }}
         >
           <pattern id="lattice" width="64" height="64" patternUnits="userSpaceOnUse">
@@ -217,30 +343,130 @@ export default function QualityPage() {
           <rect width="100%" height="100%" fill="url(#lattice)" />
         </svg>
 
-        <div className="relative max-w-3xl mx-auto text-center">
+        {/* ambient glows */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-40 -left-32 h-[480px] w-[480px] rounded-full blur-3xl opacity-25"
+          style={{ background: BRAND.gold }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -bottom-40 -right-24 h-[420px] w-[420px] rounded-full blur-3xl opacity-20"
+          style={{ background: BRAND.goldLight }}
+        />
+
+        <div className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-16">
+          {/* LEFT — copy */}
           <Reveal>
-            <Eyebrow tone="cream">Quality</Eyebrow>
+            <span
+              className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[2.5px]"
+              style={{
+                borderColor: "rgba(125,211,252,0.4)",
+                background: "rgba(56,189,248,0.1)",
+                color: BRAND.goldLight,
+              }}
+            >
+              <ShieldCheck size={13} />
+              Quality &amp; Compliance
+            </span>
+
             <h1
-              className="text-[40px] sm:text-[54px] leading-[1.1] font-bold mb-6"
+              className="mt-6 text-[40px] font-bold leading-[1.08] sm:text-[56px] lg:text-[62px]"
               style={{ ...serif, color: BRAND.cream }}
             >
-              Excellence in <span style={{ color: "#FFFFFF" }}>Every Step</span>
+              Excellence in
+              <br />
+              <span
+                style={{
+                  background: `linear-gradient(90deg, ${BRAND.goldLight}, ${BRAND.gold})`,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                Every Step
+              </span>
             </h1>
-            <p className="text-[16px] leading-relaxed max-w-xl mx-auto" style={{ color: "rgba(240,249,255,0.82)" }}>
+
+            <p
+              className="mt-6 max-w-xl text-[16px] leading-[1.8]"
+              style={{ color: "rgba(240,249,255,0.82)" }}
+            >
               At SDK Life Science Pvt. Ltd., quality is the foundation of everything we do. From
               sourcing premium raw materials to manufacturing and final product distribution, every
               stage follows strict quality standards to ensure the safety, efficacy, and reliability
               of our pharmaceutical products.
             </p>
-            <p className="text-[14px] mt-4 font-medium" style={{ color: BRAND.goldLight }}>
+
+            <p
+              className="mt-4 border-l-2 pl-4 text-[14.5px] font-medium"
+              style={{ color: BRAND.goldLight, borderColor: BRAND.gold }}
+            >
               Medicines that healthcare professionals and patients can trust.
             </p>
+
+            <div className="mt-9 flex flex-wrap items-center gap-4">
+              <a
+                href="#quality-commitment"
+                className="inline-flex items-center gap-2 rounded-md px-7 py-3.5 text-[14px] font-bold tracking-wide transition-all duration-300 hover:brightness-110"
+                style={{ background: BRAND.gold, color: BRAND.navy }}
+              >
+                Explore Our Process
+                <ArrowDown size={16} />
+              </a>
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-md border px-7 py-3.5 text-[14px] font-semibold tracking-wide transition-colors duration-300 hover:bg-white/10"
+                style={{ borderColor: "rgba(240,249,255,0.3)", color: BRAND.cream }}
+              >
+                Contact Us
+                <ArrowRight size={16} />
+              </a>
+            </div>
           </Reveal>
+
+          {/* RIGHT — batch release record */}
+          <Reveal delay={150}>
+            <BatchRecordCard />
+          </Reveal>
+        </div>
+
+        {/* stats strip */}
+        <div className="relative mx-auto mt-16 max-w-6xl sm:mt-20">
+          <div
+            className="grid grid-cols-1 divide-y rounded-t-2xl border border-b-0 sm:grid-cols-3 sm:divide-x sm:divide-y-0"
+            style={{
+              background: "rgba(240,249,255,0.06)",
+              borderColor: "rgba(240,249,255,0.16)",
+            }}
+          >
+            {[
+              { value: "WHO-GMP", label: "Guidelines followed" },
+              { value: "7", label: "Quality checkpoints" },
+              { value: "Every Batch", label: "Tested before release" },
+            ].map((stat) => (
+              <div
+                key={stat.label}
+                className="px-6 py-6 text-center"
+                style={{ borderColor: "rgba(240,249,255,0.14)" }}
+              >
+                <p className="text-[24px] font-bold sm:text-[28px]" style={{ ...serif, color: BRAND.cream }}>
+                  {stat.value}
+                </p>
+                <p
+                  className="mt-1 text-[11px] font-semibold uppercase tracking-[2px]"
+                  style={{ color: BRAND.goldLight }}
+                >
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* ── QUALITY COMMITMENT ────────────────────────────── */}
-      <section className="relative px-6 py-24" style={{ background: BRAND.cream }}>
+      <section id="quality-commitment" className="relative px-6 py-24" style={{ background: BRAND.cream }}>
         <div className="max-w-6xl mx-auto grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-14 items-start">
           <Reveal className="relative pl-8 lg:pl-9">
             <TrailLine />

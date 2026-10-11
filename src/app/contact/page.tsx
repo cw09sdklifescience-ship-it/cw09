@@ -31,6 +31,10 @@ const BRAND = {
 };
 const serif = { fontFamily: "Georgia, 'Times New Roman', serif" };
 
+/* Hero background image — file must be at /public/images/contact.jpg
+   (exact name + extension; .jpg and .jpeg are different files) */
+const HERO_IMAGE = "/images/contact.jpg";
+
 const contactDetails = [
   { Icon: Phone, label: "Phone", value: "+91 8805131888", href: "tel:+918805131888" },
   { Icon: Mail, label: "Email", value: "info@sdklifescience.com", href: "mailto:info@sdklifescience.com" },
@@ -56,10 +60,32 @@ export default function ContactPage() {
       <main style={{ background: BRAND.cream }}>
 
         {/* ── HERO ─────────────────────────────────────────── */}
-        <section className="relative overflow-hidden px-6 pt-16 pb-20" style={{ background: BRAND.deep }}>
+        <section
+          className="relative overflow-hidden px-6 pt-24 pb-28 sm:pt-28 sm:pb-32"
+          style={{ background: BRAND.deep }}
+        >
+          {/* background photo — plain <img>, always fills the whole hero */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={HERO_IMAGE}
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            className="absolute inset-0 z-0 h-full w-full object-cover object-center"
+          />
+          {/* brand overlay so the photo stays visible, text stays readable */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 z-[1]"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(12,74,110,0.6) 0%, rgba(12,74,110,0.45) 45%, rgba(12,74,110,0.8) 100%)",
+            }}
+          />
+
           <svg
             aria-hidden="true"
-            className="absolute inset-0 w-full h-full opacity-[0.07]"
+            className="absolute inset-0 z-[2] w-full h-full opacity-[0.05]"
             style={{ color: BRAND.sky }}
           >
             <pattern id="contact-lattice" width="64" height="64" patternUnits="userSpaceOnUse">
@@ -72,7 +98,7 @@ export default function ContactPage() {
             <rect width="100%" height="100%" fill="url(#contact-lattice)" />
           </svg>
 
-          <div className="relative max-w-5xl mx-auto text-center">
+          <div className="relative z-10 max-w-5xl mx-auto text-center">
             <div className="flex items-center justify-center gap-3 mb-5">
               <span className="h-px w-9" style={{ background: BRAND.sky, opacity: 0.7 }} />
               <span className="text-[11px] font-semibold tracking-[3px] uppercase" style={{ color: BRAND.sky }}>
@@ -86,7 +112,7 @@ export default function ContactPage() {
             >
               Let's Start a Conversation
             </h1>
-            <p className="text-[15.5px] max-w-lg mx-auto leading-relaxed" style={{ color: "rgba(224,242,254,0.82)" }}>
+            <p className="text-[15.5px] max-w-lg mx-auto leading-relaxed" style={{ color: "rgba(224,242,254,0.88)" }}>
               Product enquiries, distribution partnerships, or medical information —
               our team typically responds within one business day.
             </p>
