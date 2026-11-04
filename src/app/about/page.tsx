@@ -12,26 +12,6 @@ export const metadata: Metadata = {
 
 const milestones = [
   {
-    year: "2010",
-    event:
-      "Founded with a vision to make quality healthcare accessible to every patient across India.",
-  },
-  {
-    year: "2013",
-    event:
-      "Achieved WHO-GMP certification, setting the benchmark for manufacturing excellence.",
-  },
-  {
-    year: "2016",
-    event:
-      "Expanded product portfolio to include tablets, capsules, syrups, injections, and ointments.",
-  },
-  {
-    year: "2019",
-    event:
-      "Launched a dedicated Research & Development division for advanced pharmaceutical formulations.",
-  },
-  {
     year: "2022",
     event:
       "Entered the nutraceutical segment, broadening our healthcare solutions portfolio.",
@@ -94,8 +74,7 @@ const whyUs = [
 ];
 
 const founderHighlights = [
-  { label: "25+", sub: "Years in Pharma" },
-  { label: "500+", sub: "Products Launched" },
+  { label: "06+", sub: "Years in Pharma" },
   { label: "2010", sub: "Year Founded" },
 ];
 
@@ -304,12 +283,6 @@ function WorldMapIllustration() {
       </div>
 
       <div className="relative mt-5 grid grid-cols-2 gap-3">
-        <div className="rounded-xl bg-white p-4 ring-1 ring-sky-100">
-          <p className="text-2xl font-extrabold text-sky-900">500+</p>
-          <p className="mt-1 text-xs font-medium text-gray-500">
-            Products
-          </p>
-        </div>
 
         <div className="rounded-xl bg-white p-4 ring-1 ring-sky-100">
           <p className="text-2xl font-extrabold text-sky-900">Pan-India</p>
@@ -401,7 +374,7 @@ export default function AboutPage() {
 
               <p>
                 Back in{" "}
-                <strong className="text-sky-950">2010</strong>, our founder
+                <strong className="text-sky-950">2022</strong>, our founder
                 turned that belief into a mission:{" "}
                 <strong className="text-sky-950">
                   make quality healthcare accessible to all
@@ -418,10 +391,6 @@ export default function AboutPage() {
 
             <div className="mt-10 flex flex-wrap gap-6 sm:gap-8">
               <div>
-                <p className="text-3xl font-bold text-sky-950">500+</p>
-                <p className="mt-1 text-xs uppercase tracking-widest text-gray-500">
-                  Products
-                </p>
               </div>
 
               <div className="hidden w-px bg-gray-200 sm:block" />

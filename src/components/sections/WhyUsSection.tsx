@@ -38,9 +38,8 @@ const features = [
 ];
 
 const milestones = [
-  { Icon: Award,  value: "20+", label: "Years of Excellence" },
-  { Icon: Users,  value: "500+", label: "Healthcare Partners" },
-  { Icon: Globe,  value: "20+", label: "States Covered" },
+  { Icon: Award,  value: "06", label: "Years of Excellence" },
+  { Icon: Globe,  value: "Pan India", label: "States Covered" },
 ];
 
 function FeatureCard({

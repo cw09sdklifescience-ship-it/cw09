@@ -18,19 +18,7 @@ const therapies = [
 export default function ServicesPage() {
   return (
     <div className="pt-20 sm:pt-24">
-      <section className="section-padding bg-surface">
-        <div className="container-max px-4 sm:px-6">
-          <span className="text-xs font-semibold text-primary-600 tracking-widest uppercase">
-            Coverage
-          </span>
-          <h1 className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-dark leading-tight">
-            18 Therapy Areas
-          </h1>
-          <p className="mt-3 text-sm sm:text-base text-gray-500 max-w-xl">
-            Comprehensive pharmaceutical coverage for India&apos;s most critical disease categories.
-          </p>
-        </div>
-      </section>
+      
 
       <section className="section-padding bg-white">
         <div className="container-max px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

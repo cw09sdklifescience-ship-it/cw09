@@ -247,7 +247,7 @@ export default function TestimonialsSection() {
           opacity: visible ? 1 : 0,
           transition: "transform 0.5s ease 0.4s, opacity 0.5s ease 0.4s",
         }}>
-          {["500+ Healthcare Partners", "Pan India Presence", "20+ Years of Trust"].map((item, i) => (
+          {[ "Pan India Presence", "6+ Years of Trust"].map((item, i) => (
             <div key={item} style={{ display: "flex", alignItems: "center", gap: 8 }}>
               <div style={{ width: 8, height: 8, borderRadius: "50%", background: ACCENT_MID }} />
               <span style={{ fontSize: 13, fontWeight: 700, color: ACCENT_DARK }}>{item}</span>

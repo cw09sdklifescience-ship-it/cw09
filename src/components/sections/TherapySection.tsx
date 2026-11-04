@@ -114,57 +114,7 @@ export default function TherapySection() {
         THERAPY
       </div>
 
-      <div style={{ maxWidth: 1240, margin: "0 auto", padding: "0 32px" }}>
-        <div style={{
-          textAlign: "center", marginBottom: 48,
-          transform: visible ? "translateY(0)" : "translateY(20px)",
-          opacity: visible ? 1 : 0,
-          transition: "transform 0.6s ease, opacity 0.6s ease",
-        }}>
-          <div style={{
-            display: "inline-flex", alignItems: "center", gap: 8,
-            background: "rgba(12,74,110,0.1)", border: "1px solid rgba(12,74,110,0.3)",
-            borderRadius: 100, padding: "5px 16px", marginBottom: 16,
-          }}>
-            <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#0C4A6E", display: "inline-block" }}/>
-            <span style={{ fontSize: 11, fontWeight: 800, color: "#0C4A6E", letterSpacing: "1.5px", textTransform: "uppercase" }}>
-              Coverage
-            </span>
-          </div>
-          <h2 style={{
-            fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 900, color: "#0C4A6E",
-            margin: "0 0 12px", letterSpacing: "-0.4px",
-          }}>
-            18 Therapy{" "}
-            <span style={{
-              background: "linear-gradient(135deg, #0C4A6E, #38BDF8)",
-              WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-            }}>Areas</span>
-          </h2>
-          <p style={{ fontSize: 15, color: "#888", margin: "0 auto", maxWidth: 460, lineHeight: 1.65 }}>
-            Comprehensive pharmaceutical coverage across the full spectrum of medical specialties.
-          </p>
-        </div>
-
-        <div className="therapy-grid" style={{ display: "grid", gridTemplateColumns: "repeat(9, 1fr)", gap: 12 }}>
-          {therapies.map((t, i) => (
-            <TherapyCard key={t.name} {...t} index={i} visible={visible} />
-          ))}
-        </div>
-
-        <div style={{
-          textAlign: "center", marginTop: 40,
-          transform: visible ? "translateY(0)" : "translateY(16px)",
-          opacity: visible ? 1 : 0,
-          transition: "transform 0.5s ease 0.6s, opacity 0.5s ease 0.6s",
-        }}>
-          <p style={{ fontSize: 13, color: "#AAA", margin: 0, letterSpacing: "0.3px" }}>
-            Every specialty backed by{" "}
-            <span style={{ color: "#0C4A6E", fontWeight: 700 }}>WHO-GMP certified</span>
-            {" "}formulations
-          </p>
-        </div>
-      </div>
+      
 
       <style>{`
         @media (max-width: 1100px) { .therapy-grid { grid-template-columns: repeat(6, 1fr) !important; } }

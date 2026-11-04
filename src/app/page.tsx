@@ -10,7 +10,7 @@ import AboutSection from "@/components/sections/AboutSection";
 export const metadata: Metadata = {
   title: "PharmaCore — Trusted Medicine, Trusted Care",
   description:
-    "India's trusted pharmaceutical company. WHO-GMP certified medicines, generic drugs, specialty pharma solutions. Serving 20+ states with 500+ products.",
+    "India's trusted pharmaceutical company. WHO-GMP certified medicines, generic drugs, specialty pharma solutions. Serving 20+ states .",
   alternates: { canonical: "https://www.yourpharmacompany.com" },
 };
 

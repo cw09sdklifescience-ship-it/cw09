@@ -2,11 +2,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: "500+",    label: "Medicine Products",  icon: "💊", numeric: 500,  suffix: "+" },
-  { value: "20+",     label: "States Covered",      icon: "🗺️", numeric: 20,   suffix: "+" },
+  { value: "06",     label: "States Covered",      icon: "🗺️", numeric: 20,   suffix: "+" },
   { value: "2Cr+",    label: "Patients Annually",   icon: "🫀", numeric: 2,    suffix: "Cr+" },
   { value: "18",      label: "Therapy Areas",       icon: "🔬", numeric: 18,   suffix: "" },
-  { value: "2005",    label: "Est. Founded",         icon: "🏛️", numeric: 2005, suffix: "" },
+  { value: "2022",    label: "Est. Founded",         icon: "🏛️", numeric: 2005, suffix: "" },
   { value: "WHO-GMP", label: "Certified",            icon: "🏆", numeric: null, suffix: "" },
 ];
 

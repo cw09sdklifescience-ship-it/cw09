@@ -283,7 +283,7 @@ export default function CTASection() {
                   color: "rgba(255,255,255,0.45)",
                   margin: "4px 0 0",
                 }}>
-                  Trusted by 500+ healthcare partners across India
+                  
                 </p>
               </div>
             </div>

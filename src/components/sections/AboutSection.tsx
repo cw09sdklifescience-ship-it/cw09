@@ -56,8 +56,7 @@ const whyChooseUs = [
 ];
 
 const stats = [
-  { target: 20, suffix: "+", label: "Years of Trust" },
-  { target: 150, suffix: "+", label: "Quality Products" },
+  { target: 6, suffix: "+", label: "Years of Trust" },
   { target: 500, suffix: "+", label: "Happy Clients" },
 ];
 
