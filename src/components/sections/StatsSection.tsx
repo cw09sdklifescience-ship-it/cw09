@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: "Pan India", label: "States Covered",      icon: "🗺️", numeric: 20,   suffix: "" },
+  { value: "Pan India", label: "States Covered",      icon: "🗺️", numeric: null,   suffix: "" },
   { value: "500+",    label: "Patients Annually",   icon: "🫀", numeric: 500,    suffix: "+" },
   { value: "2022",    label: "Est. Founded",         icon: "🏛️", numeric: 2022, suffix: "" },
   { value: "WHO-GMP", label: "Certified",            icon: "🏆", numeric: null, suffix: "" },
