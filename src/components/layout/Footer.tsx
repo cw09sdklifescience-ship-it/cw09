@@ -123,7 +123,7 @@ export default function Footer() {
             }}
           >
             A trusted name in the pharmaceutical industry delivering WHO-GMP certified
-            medicines across India since 2005.
+            medicines across India since 2022.
           </p>
 
           {/* Contact details */}

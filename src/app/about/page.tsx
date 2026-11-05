@@ -11,16 +11,11 @@ export const metadata: Metadata = {
 };
 
 const milestones = [
-  {
-    year: "2022",
-    event:
-      "Entered the nutraceutical segment, broadening our healthcare solutions portfolio.",
-  },
-  {
-    year: "2024",
-    event:
-      "Expanded our distribution network to serve hospitals, distributors, and healthcare professionals across India.",
-  },
+ { year: "2022", event: "Founded with a vision to make quality healthcare accessible to every patient across India." },
+  { year: "2023", event: "Achieved WHO-GMP certification, setting the benchmark for manufacturing excellence." },
+  { year: "2024", event: "Expanded product portfolio to include tablets, capsules, syrups, injections, and ointments." },
+  { year: "2025", event: "Launched dedicated Research & Development division for advanced pharmaceutical formulations." },
+  { year: "2026", event: "Pan-India distribution network serving hospitals, distributors, and healthcare professionals." },
 ];
 
 const values = [
@@ -75,7 +70,7 @@ const whyUs = [
 
 const founderHighlights = [
   { label: "06+", sub: "Years in Pharma" },
-  { label: "2010", sub: "Year Founded" },
+  { label: "2022", sub: "Year Founded" },
 ];
 
 const facilities = [
@@ -719,7 +714,7 @@ export default function AboutPage() {
 
               <div className="mt-6 space-y-4 text-[15px] leading-[1.85] text-gray-600">
                 <p>
-                  Dr. Suraj Nagargoje founded Pharma Medicline in 2010 with
+                  Dr. Suraj Nagargoje founded Pharma Medicline in 2022 with
                   the aim of making quality medicines more accessible. His
                   focus on pharmaceutical manufacturing, quality control,
                   and patient needs continues to shape the company's mission.

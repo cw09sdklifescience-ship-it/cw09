@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 const stats = [
   { value: "Pan India", label: "States Covered",      icon: "🗺️", numeric: 20,   suffix: "+" },
-  { value: "2Cr+",    label: "Patients Annually",   icon: "🫀", numeric: 2,    suffix: "Cr+" },
+  { value: "500+",    label: "Patients Annually",   icon: "🫀", numeric: 2,    suffix: "Cr+" },
   { value: "2022",    label: "Est. Founded",         icon: "🏛️", numeric: 2022, suffix: "" },
   { value: "WHO-GMP", label: "Certified",            icon: "🏆", numeric: null, suffix: "" },
 ];
@@ -39,6 +39,7 @@ function StatCard({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        justifyContent: "center",
         padding: "28px 12px 24px",
         borderRadius: 16,
         background: hovered ? "#fff" : "#F0F9FF",
@@ -169,8 +170,11 @@ export default function StatsSection() {
           className="stats-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(6, 1fr)",
-            gap: 14,
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: 20,
+            maxWidth: 1000,
+            margin: "0 auto",
+            justifyContent: "center",
           }}
         >
           {stats.map((stat, i) => (
@@ -181,10 +185,10 @@ export default function StatsSection() {
 
       <style>{`
         @media (max-width: 900px) {
-          .stats-grid { grid-template-columns: repeat(3, 1fr) !important; }
+          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; max-width: 560px !important; }
         }
-        @media (max-width: 560px) {
-          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        @media (max-width: 400px) {
+          .stats-grid { gap: 12px !important; }
         }
         @media (prefers-reduced-motion: reduce) {
           * { transition: none !important; }
